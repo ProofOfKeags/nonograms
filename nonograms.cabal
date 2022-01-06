@@ -1,0 +1,81 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           nonograms
+version:        0.0.0
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+
+flag dev
+  manual: False
+  default: False
+
+flag library-only
+  manual: False
+  default: False
+
+library
+  exposed-modules:
+      LibCode
+  other-modules:
+      Paths_nonograms
+  hs-source-dirs:
+      src
+  default-extensions:
+      ConstraintKinds
+      FlexibleContexts
+      LambdaCase
+      MultiWayIf
+      OverloadedStrings
+      PackageImports
+      RecursiveDo
+      ScopedTypeVariables
+  build-depends:
+      base
+    , containers
+    , random
+    , reflex
+    , reflex-vty
+    , text
+    , time
+    , vty
+  if (flag(dev) || flag(library-only))
+    ghc-options: -Wall -fwarn-tabs -O0 -fdefer-typed-holes
+    cpp-options: -DDEVELOPMENT
+  else
+    ghc-options: -Wall -fwarn-tabs -O2 -fdefer-typed-holes
+  default-language: Haskell2010
+
+executable nonograms
+  main-is: Main.hs
+  other-modules:
+      Paths_nonograms
+  hs-source-dirs:
+      app
+  default-extensions:
+      ConstraintKinds
+      FlexibleContexts
+      LambdaCase
+      MultiWayIf
+      OverloadedStrings
+      PackageImports
+      RecursiveDo
+      ScopedTypeVariables
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -fdefer-typed-holes
+  build-depends:
+      base
+    , containers
+    , nonograms
+    , random
+    , reflex
+    , reflex-vty
+    , text
+    , time
+    , vty
+  if flag(library-only)
+    buildable: False
+  default-language: Haskell2010

@@ -1,0 +1,57 @@
+name: nonograms
+version: 0.0.0
+default-extensions:
+  - ConstraintKinds
+  - FlexibleContexts
+  - LambdaCase
+  - MultiWayIf
+  - OverloadedStrings
+  - PackageImports
+  - RecursiveDo
+  - ScopedTypeVariables
+dependencies:
+  - base
+  - containers
+  - random
+  - reflex
+  - reflex-vty
+  - text
+  - time
+  - vty
+library:
+  source-dirs: src
+  when:
+    - condition: (flag(dev) || flag(library-only))
+      then:
+        cpp-options: -DDEVELOPMENT
+        ghc-options:
+          - -Wall
+          - -fwarn-tabs
+          - -O0
+          - -fdefer-typed-holes
+      else:
+        ghc-options:
+          - -Wall
+          - -fwarn-tabs
+          - -O2
+          - -fdefer-typed-holes
+executables:
+  nonograms:
+    source-dirs: app
+    main: Main.hs
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+      - -fdefer-typed-holes
+    dependencies: nonograms
+    when:
+      - condition: flag(library-only)
+        buildable: false
+flags:
+  library-only:
+    manual: false
+    default: false
+  dev:
+    manual: false
+    default: false

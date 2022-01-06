@@ -1,0 +1,10 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "nonograms:lib"
+
+    - path: "./app/Main.hs"
+      component: "nonograms:exe:nonograms"
+
+    - path: "./app/Paths_nonograms.hs"
+      component: "nonograms:exe:nonograms"
