@@ -28,6 +28,7 @@ library
   default-extensions:
       ConstraintKinds
       FlexibleContexts
+      ImportQualifiedPost
       LambdaCase
       MultiWayIf
       OverloadedStrings
@@ -59,6 +60,7 @@ executable nonograms
   default-extensions:
       ConstraintKinds
       FlexibleContexts
+      ImportQualifiedPost
       LambdaCase
       MultiWayIf
       OverloadedStrings

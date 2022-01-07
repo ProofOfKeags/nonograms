@@ -3,6 +3,7 @@ version: 0.0.0
 default-extensions:
   - ConstraintKinds
   - FlexibleContexts
+  - ImportQualifiedPost
   - LambdaCase
   - MultiWayIf
   - OverloadedStrings

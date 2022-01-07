@@ -1,28 +1,27 @@
 module Main where
 
 import Control.Applicative
+import Control.Arrow
 import Control.Monad
 import Control.Monad.Fix
+import Data.Bool
+import Data.Foldable (Foldable (maximum))
 import Data.Functor
 import Data.Functor.Misc
+import Data.List
 import Data.Map (Map)
-import qualified Data.Map as Map
-import qualified Data.Set as Set
+import Data.Map qualified as Map
+import Data.Maybe
+import Data.Set qualified as Set
 import Data.Text (Text)
-import qualified Data.Text as T
-import qualified Data.Text.Zipper as TZ
-import qualified Graphics.Vty as V
+import Data.Text qualified as T
+import Data.Text.Zipper qualified as TZ
+import Data.Word
+import Graphics.Vty qualified as V
+import LibCode
 import Reflex
 import Reflex.Network
 import Reflex.Vty
-
-import Control.Arrow
-import Data.Bool
-import Data.Foldable (Foldable (maximum))
-import Data.List
-import Data.Maybe
-import Data.Word
-import LibCode
 import System.Random
 
 
